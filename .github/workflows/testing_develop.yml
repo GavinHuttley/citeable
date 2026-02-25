@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+# NOTE:
+# if changing python versions, also update versions in
+# - release.yml
+# - noxfile.py
+
+jobs:
+  tests:
+    name: "Python ${{ matrix.python-version }} (${{ matrix.os }})"
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.11", "3.14"]
+
+    steps:
+      - uses: "actions/checkout@v6"
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: "Run nox for ${{ matrix.python-version }}"
+        shell: bash
+        run: |
+          cov="--cov-report lcov:lcov-${{matrix.os}}-${{matrix.python-version}}.lcov --cov-report term --cov-append --cov citeable"
+          uv run nox -s "test-${{ matrix.python-version }}" -- $cov
+
+  type_check:
+    name: Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: "Run Type Checking"
+        run: uv run mypy src/citeable --strict
