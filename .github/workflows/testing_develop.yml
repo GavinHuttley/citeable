@@ -32,8 +32,7 @@ jobs:
       - name: "Run nox for ${{ matrix.python-version }}"
         shell: bash
         run: |
-          dn=$(pwd)
-          cov="--cov-report lcov:lcov-${{matrix.os}}-${{matrix.python-version}}.lcov --cov-report term --cov-append --cov citeable --cov-config=${dn}/.coveragerc"
+          cov="--cov-report lcov:lcov-${{matrix.os}}-${{matrix.python-version}}.lcov --cov-report term --cov-append --cov citeable"
           uv run nox -s "test-${{ matrix.python-version }}" -- $cov
 
   type_check:
