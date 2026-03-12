@@ -22,7 +22,7 @@ wheels = [
 
 [[package]]
 name = "citeable"
-version = "2026.3.11b0"
+version = "2026.3.11b1"
 source = { editable = "." }
 
 [package.dev-dependencies]
