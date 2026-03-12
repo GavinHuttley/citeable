@@ -4,6 +4,7 @@ import pytest
 
 from citeable import Article, Misc, Software, assign_unique_keys
 from citeable._keys import generate_key
+from citeable._validate import extract_surname
 
 # ── generate_key ─────────────────────────────────────────────────────────
 
@@ -20,8 +21,18 @@ def test_generate_key_strips_non_ascii():
     assert generate_key(["Müller, Hans"], 2020) == "Mller.2020"
 
 
-def test_generate_key_title_cases():
-    assert generate_key(["van der berg, Jan"], 2020) == "Vanderberg.2020"
+def test_generate_key_preserves_case():
+    assert generate_key(["van der berg, Jan"], 2020) == "vanderberg.2020"
+
+
+def test_generate_key_camel_case_preserved():
+    assert generate_key(["McArthur, Robert"], 2021) == "McArthur.2021"
+    assert generate_key(["McDonald, Daniel"], 2022) == "McDonald.2022"
+
+
+def test_extract_surname_preserves_case():
+    assert extract_surname("McArthur, Robert") == "McArthur"
+    assert extract_surname("McDonald, Daniel") == "McDonald"
 
 
 # ── assign_unique_keys ──────────────────────────────────────────────────

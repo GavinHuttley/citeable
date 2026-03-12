@@ -17,7 +17,7 @@ def generate_key(author: list[str], year: int) -> str:
 
     Algorithm:
     1. Extract surname from the first author (before comma, or last token).
-    2. Strip non-ASCII and spaces; title-case.
+    2. Strip non-ASCII and spaces; preserve original case.
     3. Return ``"{surname}.{year}"``.
     """
     surname = extract_surname(author[0])
