@@ -27,11 +27,11 @@ def extract_surname(name: str) -> str:
     """Extract surname from an author name string.
 
     Handles both ``"Last, First"`` and ``"First Last"`` formats.
-    Returns the surname stripped of non-ASCII characters and title-cased.
+    Returns the surname stripped of non-ASCII characters, preserving original case.
     """
     if "," in name:
         surname = name.split(",", maxsplit=1)[0].strip()
     else:
         surname = name.rsplit(maxsplit=1)[-1].strip()
     surname = re.sub(r"[^A-Za-z]", "", surname)
-    return surname.title()
+    return surname
