@@ -9,7 +9,7 @@ if sys.version_info >= (3, 12):
 
 nox.options.default_venv_backend = "uv"
 
-_py_versions = range(11, 15)
+_py_versions = range(11, 16)
 
 
 @nox.session(python=False)
@@ -18,7 +18,10 @@ def fmt(session: nox.Session) -> None:
     session.run("ruff", "format", ".", external=True)
 
 
-@nox.session(python=[f"3.{v}" for v in _py_versions])
+@nox.session(
+    python=[f"3.{v}" for v in _py_versions]
+    + [f"3.{v}t" for v in _py_versions if v >= 14]
+)
 def test(session: nox.Session) -> None:
     session.install("-e.[dev]")
     session.chdir("tests")
