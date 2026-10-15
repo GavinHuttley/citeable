@@ -3,11 +3,11 @@
 *Structured BibTeX citations for developers of scientific software packages.*
 
 [![License](https://img.shields.io/pypi/l/citeable.svg)](https://github.com/cogent3/citeable/blob/main/LICENSE)
-[![Coverage Status](https://coveralls.io/repos/github/GavinHuttley/citeable/badge.svg?branch=main)](https://coveralls.io/github/GavinHuttley/citeable?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/cogent3/citeable/badge.svg?branch=main)](https://coveralls.io/github/cogent3/citeable?branch=main)
 [![PyPI version](https://badge.fury.io/py/citeable.svg)](https://badge.fury.io/py/citeable)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/cogent3)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/citeable)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![CodeQL](https://github.com/cogent3/cogent3/actions/workflows/codeql.yml/badge.svg)](https://github.com/cogent3/cogent3/actions/workflows/codeql.yml)
+[![CodeQL](https://github.com/cogent3/citeable/actions/workflows/codeql.yml/badge.svg)](https://github.com/cogent3/citeable/actions/workflows/codeql.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ec0f6a2dad174b04b5dcbfdae02acab7)](https://app.codacy.com/gh/cogent3/citeable/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## Overview

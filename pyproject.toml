@@ -25,6 +25,11 @@ classifiers = [
     "Typing :: Typed",
 ]
 
+[project.urls]
+Homepage = "https://github.com/cogent3/citeable"
+Source = "https://github.com/cogent3/citeable"
+Issues = "https://github.com/cogent3/citeable/issues"
+
 
 [dependency-groups]
 dev = ["cogapp", "mypy", "nox", "pytest", "pytest-cov", "ruff"]
