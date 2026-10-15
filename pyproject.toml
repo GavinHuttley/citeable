@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "citeable"
-version = "2026.9.24"
+version = "2026.10.15"
 description = "Structured BibTeX citations for developers of scientific software packages."
 readme = "README.md"
 requires-python = ">=3.11"
