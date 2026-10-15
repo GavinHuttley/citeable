@@ -62,6 +62,7 @@ ignore = [
     "PLR2004", # Magic number usage where appropriate
     "PLC0415", # Allow delayed imports
     "A002",    # Allow shadowing builtins for domain field names (e.g. license)
+    "CPY001",  # No per-file copyright headers, licence is in LICENSE
 ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
@@ -82,6 +83,9 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 ]
 
 [format]
+# README code blocks include cog output from repr(), which uses single quotes.
+exclude = ["README.md"]
+
 # Like Black, use double quotes for strings.
 quote-style = "double"
 

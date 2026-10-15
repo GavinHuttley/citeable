@@ -33,5 +33,4 @@ def extract_surname(name: str) -> str:
         surname = name.split(",", maxsplit=1)[0].strip()
     else:
         surname = name.rsplit(maxsplit=1)[-1].strip()
-    surname = re.sub(r"[^A-Za-z]", "", surname)
-    return surname
+    return re.sub(r"[^A-Za-z]", "", surname)
